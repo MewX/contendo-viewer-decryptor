@@ -8,6 +8,8 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.b.a.b.a;
+
 class Main {
     public static byte[] hexStringToByteArray(String s) {
         int len = s.length();
@@ -26,10 +28,13 @@ class Main {
     }
     
     public static void main(String[] args) {
-        new Main().run();
+        new Main().runAES();
     }
 
-    public void run() {
+    /**
+     * This function decodes the <user_home>/.ConTenDoViewer/info file.
+     */
+    public void runAES() {
         System.out.println("test");
         try {
             FileInputStream fileInputStream = new FileInputStream("/mnt/r/info");
@@ -46,7 +51,7 @@ class Main {
             ObjectInputStream objectInputStream = new ObjectInputStream(new CipherInputStream(fileInputStream, cipher));
 
             long secretKey = objectInputStream.readLong();
-            HashMap<String, Object> n = (HashMap<String, Object>) objectInputStream.readObject();
+            HashMap<String, com.b.a.b.a> n = (HashMap<String, com.b.a.b.a>) objectInputStream.readObject();
             String k = (String) objectInputStream.readObject();
             String l = (String) objectInputStream.readObject();
             Boolean p = ((Boolean) objectInputStream.readObject()).booleanValue();
@@ -54,8 +59,18 @@ class Main {
 
             // Print everything
             System.out.println(secretKey);
+            System.out.println("key_info:");
             for (String key : n.keySet()) {
-                System.out.println(key + ": " + n.get(key));
+                com.b.a.b.a a = n.get(key);
+                System.out.println("  " + key + ":");
+                System.out.println("    a.a: " + a.a.a());
+                System.out.println("    b: " + a.a.b());
+                System.out.println("    c: " + a.a.c());
+                System.out.println("    d: " + a.a.d());
+                System.out.println("    e: " + a.a.e().toString());
+                System.out.println("    f: " + a.a.f());
+                System.out.println("    a.b: " + a.b);
+                System.out.println("    a.c: " + a.c);
             }
             System.out.println(k);
             System.out.println(l);

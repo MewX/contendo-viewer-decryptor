@@ -13,11 +13,11 @@ public class a implements Serializable {
 //   private static final long serialVersionUID = -1370564015154108825L;
   private static final long serialVersionUID = -5690525552757311754L;
   
-  final com.b.a.b.b a;
+  public final com.b.a.b.b a;
   
-  final String b;
+  public final String b;
   
-  final String c;
+  public final String c;
   
   public static HashMap<String, Object> a(Collection<com.b.a.b.b> paramCollection) {
     HashMap<Object, Object> hashMap = new HashMap<>();
@@ -79,8 +79,8 @@ public class a implements Serializable {
   private a(com.b.a.b.b paramb) {
     this.a = paramb;
     // this.c = g.a(this.a.a, this.a.b).intern();
-    this.c = "asdf";
+    this.c = "useless default";
     // this.b = g.a(this.c).intern();
-    this.b = "fgj";
+    this.b = "useless default";
   }
 }
