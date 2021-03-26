@@ -2,6 +2,14 @@
 ./net/zamasoft/reader/util/i.java
 ./net/zamasoft/reader/util/j.java
 ./net/zamasoft/reader/b.java
+./Dumper.java
+./com/b/a/a/a/a/bb.java
+./com/b/a/a/a/a/a.java
+./com/b/a/a/a/b/b.java
+./com/b/a/a/a/c/a.java
+./com/b/a/a/aa.java
 ./com/b/a/g.java
 ./com/b/a/b/a.java
+./com/b/a/b/aa/a.java
+./com/b/a/b/aa/b.java
 ./com/b/a/b/b.java
