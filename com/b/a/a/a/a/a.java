@@ -1,128 +1,118 @@
+/*
+ * Decompiled with CFR 0.151.
+ */
 package com.b.a.a.a.a;
 
 public class a {
     static final int a = 2;
-
     static final int b = 2;
-
     static final int c = 4;
-
     static final int d = 8;
-
     static final int e = 4;
-
     static final int f = 8;
 
-    public static char a(byte[] paramArrayOfbyte, int paramInt) {
-        int i = paramArrayOfbyte[paramInt] & 0xFF;
-        i = i << 8 | paramArrayOfbyte[paramInt + 1] & 0xFF;
-        return (char) i;
+    public static char a(byte[] byArray, int n2) {
+        int n3 = byArray[n2] & 0xFF;
+        n3 = n3 << 8 | byArray[n2 + 1] & 0xFF;
+        return (char) n3;
     }
 
-    public static short b(byte[] paramArrayOfbyte, int paramInt) {
-        int i = paramArrayOfbyte[paramInt] & 0xFF;
-        i = i << 8 | paramArrayOfbyte[paramInt + 1] & 0xFF;
-        return (short) i;
+    public static short b(byte[] byArray, int n2) {
+        int n3 = byArray[n2] & 0xFF;
+        n3 = n3 << 8 | byArray[n2 + 1] & 0xFF;
+        return (short) n3;
     }
 
-    public static int c(byte[] paramArrayOfbyte, int paramInt) {
-        int ret = paramArrayOfbyte[paramInt] & 0xFF;
-        ret = ret << 8 | paramArrayOfbyte[paramInt + 1] & 0xFF;
-        ret = ret << 8 | paramArrayOfbyte[paramInt + 2] & 0xFF;
-        return ret << 8 | paramArrayOfbyte[paramInt + 3] & 0xFF;
+    public static int c(byte[] byArray, int n2) {
+        int n3 = byArray[n2] & 0xFF;
+        n3 = n3 << 8 | byArray[n2 + 1] & 0xFF;
+        n3 = n3 << 8 | byArray[n2 + 2] & 0xFF;
+        n3 = n3 << 8 | byArray[n2 + 3] & 0xFF;
+        return n3;
     }
 
-    public static long d(byte[] paramArrayOfbyte, int paramInt) {
-        long ret = paramArrayOfbyte[paramInt] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 1] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 2] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 3] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 4] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 5] & 0xFFL;
-        ret = ret << 8L | paramArrayOfbyte[paramInt + 6] & 0xFFL;
-        return ret << 8L | paramArrayOfbyte[paramInt + 7] & 0xFFL;
+    public static long d(byte[] byArray, int n2) {
+        long l2 = (long) byArray[n2] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 1] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 2] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 3] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 4] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 5] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 6] & 0xFFL;
+        l2 = l2 << 8 | (long) byArray[n2 + 7] & 0xFFL;
+        return l2;
     }
 
-    public static int a(byte[] paramArrayOfbyte, int paramInt1, int paramInt2) {
-        if (paramArrayOfbyte != null) {
-            paramArrayOfbyte[paramInt2 + 3] = (byte) (paramInt1 & 0xFF);
-            paramInt1 >>>= 8;
-            paramArrayOfbyte[paramInt2 + 2] = (byte) (paramInt1 & 0xFF);
-            paramInt1 >>>= 8;
-            paramArrayOfbyte[paramInt2 + 1] = (byte) (paramInt1 & 0xFF);
-            paramInt1 >>>= 8;
-            paramArrayOfbyte[paramInt2] = (byte) (paramInt1 & 0xFF);
+    public static int a(byte[] byArray, int n2, int n3) {
+        if (byArray != null) {
+            byArray[n3 + 3] = (byte) (n2 & 0xFF);
+            byArray[n3 + 2] = (byte) ((n2 >>>= 8) & 0xFF);
+            byArray[n3 + 1] = (byte) ((n2 >>>= 8) & 0xFF);
+            byArray[n3] = (byte) ((n2 >>>= 8) & 0xFF);
         }
-        return paramInt2 + 4;
+        return n3 + 4;
     }
 
-    public static int a(byte[] paramArrayOfbyte, short paramShort, int paramInt) {
-        if (paramArrayOfbyte != null) {
-            int i = paramShort;
-            paramArrayOfbyte[paramInt + 1] = (byte) (i & 0xFF);
-            i >>>= 8;
-            paramArrayOfbyte[paramInt] = (byte) (i & 0xFF);
+    public static int a(byte[] byArray, short n2, int n3) {
+        if (byArray != null) {
+            int n4 = n2;
+            byArray[n3 + 1] = (byte) (n4 & 0xFF);
+            byArray[n3] = (byte) ((n4 >>>= 8) & 0xFF);
         }
-        return paramInt + 2;
+        return n3 + 2;
     }
 
-    public static int a(byte[] paramArrayOfbyte, char paramChar, int paramInt) {
-        if (paramArrayOfbyte != null) {
-            int i = paramChar;
-            paramArrayOfbyte[paramInt + 1] = (byte) (i & 0xFF);
-            i >>>= 8;
-            paramArrayOfbyte[paramInt] = (byte) (i & 0xFF);
+    public static int a(byte[] byArray, char n2, int n3) {
+        if (byArray != null) {
+            int n4 = n2;
+            byArray[n3 + 1] = (byte) (n4 & 0xFF);
+            byArray[n3] = (byte) ((n4 >>>= 8) & 0xFF);
         }
-        return paramInt + 2;
+        return n3 + 2;
     }
 
-    public static int a(byte[] paramArrayOfbyte, long paramLong, int paramInt) {
-        if (paramArrayOfbyte != null) {
-            paramArrayOfbyte[paramInt + 7] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 6] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 5] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 4] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 3] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 2] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt + 1] = (byte) (int) (paramLong & 0xFFL);
-            paramLong >>>= 8L;
-            paramArrayOfbyte[paramInt] = (byte) (int) (paramLong & 0xFFL);
+    public static int a(byte[] byArray, long l2, int n2) {
+        if (byArray != null) {
+            byArray[n2 + 7] = (byte) (l2 & 0xFFL);
+            byArray[n2 + 6] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2 + 5] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2 + 4] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2 + 3] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2 + 2] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2 + 1] = (byte) ((l2 >>>= 8) & 0xFFL);
+            byArray[n2] = (byte) ((l2 >>>= 8) & 0xFFL);
         }
-        return paramInt + 8;
+        return n2 + 8;
     }
 
-    public static int a(byte[] paramArrayOfbyte, byte paramByte, int paramInt) {
-        if (paramArrayOfbyte != null)
-            paramArrayOfbyte[paramInt] = paramByte;
-        return paramInt + 1;
+    public static int a(byte[] byArray, byte by, int n2) {
+        if (byArray != null) {
+            byArray[n2] = by;
+        }
+        return n2 + 1;
     }
 
-    public static int a(byte[] paramArrayOfbyte1, byte[] paramArrayOfbyte2, int paramInt) {
-        if (paramArrayOfbyte1 != null)
-            System.arraycopy(paramArrayOfbyte2, 0, paramArrayOfbyte1, paramInt, paramArrayOfbyte2.length);
-        return paramInt + paramArrayOfbyte2.length;
+    public static int a(byte[] byArray, byte[] byArray2, int n2) {
+        if (byArray != null) {
+            System.arraycopy(byArray2, 0, byArray, n2, byArray2.length);
+        }
+        return n2 + byArray2.length;
     }
 
-    public static char a(char paramChar) {
-        return (char) ((paramChar << 8 | paramChar >>> 8) & 0xFFFF);
+    public static char a(char c2) {
+        return (char) ((c2 << 8 | c2 >>> 8) & 0xFFFF);
     }
 
-    public static short a(short paramShort) {
-        return (short) ((paramShort << 8 | paramShort >>> 8) & 0xFFFF);
+    public static short a(short s2) {
+        return (short) ((s2 << 8 | s2 >>> 8) & 0xFFFF);
     }
 
-    public static int a(int paramInt) {
-        int i = paramInt << 8 & 0xFF00FF00;
-        int j = paramInt >>> 8 & 0xFF00FF;
-        paramInt = i | j;
-        i = paramInt << 16;
-        j = paramInt >>> 16;
-        return i | j;
+    public static int a(int n2) {
+        int n3 = n2 << 8 & 0xFF00FF00;
+        int n4 = n2 >>> 8 & 0xFF00FF;
+        n2 = n3 | n4;
+        n3 = n2 << 16;
+        n4 = n2 >>> 16;
+        return n3 | n4;
     }
 }

@@ -127,10 +127,15 @@ class Main {
                 // String str2 = a.a(this.n, str1);
                 String str2 = "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
                 int i = h.a(str2.getBytes());
-                h.b(h.b());
-
+                byte[] guessResult = h.b();
+                System.out.println(new String(guessResult, "utf-8"));
+                h.b(guessResult); // Decrypt
+                System.out.println(new String(guessResult, "utf-8"));
                 if (i != 0)
                     System.out.println(Dumper.dump(h.a(i)));
+
+                h.b(paramArrayOfbyte);
+                System.out.println(new String(paramArrayOfbyte, "utf-8"));
             } else {
                 System.out.println("NOOOOOOOO!");
             }
