@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.crypto.Cipher;
@@ -128,14 +129,25 @@ class Main {
                 String str2 = "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
                 int i = h.a(str2.getBytes());
                 byte[] guessResult = h.b();
-                System.out.println(new String(guessResult, "utf-8"));
-                h.b(guessResult); // Decrypt
-                System.out.println(new String(guessResult, "utf-8"));
+                h.b(guessResult); // Digest, this also sets com.b.a.a.aa.a.b. (The hashmap)
                 if (i != 0)
                     System.out.println(Dumper.dump(h.a(i)));
+                else
+                    System.out.println("error in i.");
 
-                h.b(paramArrayOfbyte);
-                System.out.println(new String(paramArrayOfbyte, "utf-8"));
+                // Using the official file reader.
+                net.zamasoft.reader.book.a.b randomAccessFile = new net.zamasoft.reader.book.a.b(new File(filePath));
+                System.out.println("file length: " + randomAccessFile.length());
+                System.out.println("key: " + com.b.a.a.a.c.a.getBLatest());
+                ArrayList<Byte> bytes = new ArrayList<>();
+                StringBuilder sb = new StringBuilder();
+                while (!randomAccessFile.isEOF()) {
+                    byte b = (byte) randomAccessFile.read();
+                    bytes.add(b);
+                    sb.append((char) b);
+                }
+                System.out.println("bytes length: " + bytes.size());
+                System.out.println(sb.toString());
             } else {
                 System.out.println("NOOOOOOOO!");
             }
