@@ -2,7 +2,6 @@ package com.b.a;
 
 import com.a.a.b.a.b;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class c implements b {
     // private final a a;
@@ -44,13 +43,7 @@ public class c implements b {
         // this.a.a(paramArrayOfbyte, this.b, paramInt1, paramInt2, paramInt3);
         System.out.println("not expecting to hardcode this");
 
-        // byte[] arrayOfByte = b.get(paramObject);
-        // a(paramArrayOfbyte1, paramInt1, paramArrayOfbyte2, arrayOfByte, paramInt2,
-        // paramInt3, paramInt4);
-
-        // com.b.a.a.a.c.a.a(paramArrayOfbyte, paramInt2,
-        // Arrays.copyOf(paramArrayOfbyte, paramArrayOfbyte.length),
-        // paramInt1, paramInt2, paramInt3);
+        // Really stupid to pass the array twice as per the decompiled codes.
         com.b.a.a.a.c.a.a(paramArrayOfbyte, paramInt2, paramArrayOfbyte, paramInt1, paramInt2, paramInt3);
     }
 }

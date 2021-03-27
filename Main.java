@@ -140,14 +140,17 @@ class Main {
                 System.out.println("file length: " + randomAccessFile.length());
                 System.out.println("key: " + com.b.a.a.a.c.a.getBLatest());
                 ArrayList<Byte> bytes = new ArrayList<>();
-                StringBuilder sb = new StringBuilder();
                 while (!randomAccessFile.isEOF()) {
                     byte b = (byte) randomAccessFile.read();
                     bytes.add(b);
-                    sb.append((char) b);
+                }
+                assert randomAccessFile.length() == bytes.size();
+                byte[] bs = new byte[bytes.size()];
+                for (int ii = 0; ii < bs.length; ii++) {
+                    bs[ii] = bytes.get(ii);
                 }
                 System.out.println("bytes length: " + bytes.size());
-                System.out.println(sb.toString());
+                System.out.println(new String(bs, "utf-8"));
             } else {
                 System.out.println("NOOOOOOOO!");
             }
