@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.WeakHashMap;
 
 public class a implements aa {
+    // b is bookID to decryptionKey map.
     private static WeakHashMap<Object, byte[]> b = (WeakHashMap) new WeakHashMap<>();
     public static byte[] bLatest = null; // This is the a.c printed previously.
 
