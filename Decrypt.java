@@ -5,7 +5,9 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class Decrypt {
-    private final String DECRYPTION_KEY = "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
+    // public static String DECRYPTION_KEY =
+    // "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
+    public static String DECRYPTION_KEY = "67fb93e12304f0fcb04587f104161dfaae56363b8a10088b39b988480cc5082f4c6b899a27adf86511e64a06254eb2a5bd45b1588a4c1e283a64d94b380a0ec0";
 
     public String getOutputFullPath(String src, String dest, String fullSrcPath) {
         return dest + fullSrcPath.substring(src.length());
@@ -28,10 +30,8 @@ public class Decrypt {
             final String inputFullPath = file.getAbsolutePath();
             if (file.isDirectory()) {
                 System.out.println("Dir: " + inputFullPath + " -> " + getOutputFullPath(src, dest, inputFullPath));
-                showFiles(src, dest, file.listFiles());
-
-                // Create output directory.
                 new File(getOutputFullPath(src, dest, inputFullPath)).mkdirs();
+                showFiles(src, dest, file.listFiles());
             } else if (file.isFile()) {
                 System.out.println("File: " + inputFullPath + " -> " + getOutputFullPath(src, dest, inputFullPath));
 

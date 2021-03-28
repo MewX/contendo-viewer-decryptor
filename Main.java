@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,7 +31,8 @@ class Main {
 
     public static void main(String[] args) {
         new Main().runAES("/mnt/r/info");
-        new Main().runDecrypt("/mnt/r/J0010495BK0099750001.S/OPS/xhtml/1.xhtml");
+        // new Main().runDecrypt("/mnt/r/J0010495BK0099750001.S/OPS/xhtml/1.xhtml");
+        new Main().runDecrypt("/mnt/r/comic.S/item/xhtml/p-001.xhtml");
     }
 
     /**
@@ -46,7 +46,10 @@ class Main {
             for (int i = fileInputStream.read(); i != 19; i = fileInputStream.read())
                 stringBuffer.append((char) i);
             // long l = Long.parseLong(stringBuffer.toString());
-            byte[] builtSecretKey = buildSecretKey(-345585222195293739L);
+
+            // This is the Long object in the `info` file.
+            // byte[] builtSecretKey = buildSecretKey(-345585222195293739L);
+            byte[] builtSecretKey = buildSecretKey(6874628185188049249L);
 
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             SecretKeySpec secretKeySpec = new SecretKeySpec(messageDigest.digest(builtSecretKey), "AES");
@@ -126,7 +129,7 @@ class Main {
 
                 String str1 = (new String(paramArrayOfbyte, 28, 32)).intern();
                 // String str2 = a.a(this.n, str1);
-                String str2 = "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
+                String str2 = Decrypt.DECRYPTION_KEY;
                 int i = h.a(str2.getBytes());
                 byte[] guessResult = h.b();
                 h.b(guessResult); // Digest, this also sets com.b.a.a.aa.a.b. (The hashmap)
