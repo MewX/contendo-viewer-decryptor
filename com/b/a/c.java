@@ -41,7 +41,6 @@ public class c implements b {
 
     public void a(byte[] paramArrayOfbyte, int paramInt1, int paramInt2, int paramInt3) throws IOException {
         // this.a.a(paramArrayOfbyte, this.b, paramInt1, paramInt2, paramInt3);
-        System.out.println("not expecting to hardcode this");
 
         // Really stupid to pass the array twice as per the decompiled codes.
         com.b.a.a.a.c.a.a(paramArrayOfbyte, paramInt2, paramArrayOfbyte, paramInt1, paramInt2, paramInt3);

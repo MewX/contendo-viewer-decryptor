@@ -64,9 +64,6 @@ public class a implements aa {
         int n6 = byArray3.length;
         int n7 = n3 % n6;
         int n8 = n3;
-        System.out.println("n6: " + n6);
-        System.out.println("n7: " + n7);
-        System.out.println("n8: " + n8);
         for (int i2 = 0; i2 < n5; ++i2) {
             byArray[n2++] = (byte) (byArray2[n4++] ^ byArray3[n7] ^ (n8 ^ n8 >> 8 ^ n8 >> 16 ^ n8 >> 24) & 0xFF);
             if (++n7 >= n6) {

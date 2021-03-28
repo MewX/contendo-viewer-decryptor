@@ -11,17 +11,12 @@ import org.apache.pdfbox.io.RandomAccessRead;
 
 public class b implements RandomAccessRead {
     private int a = 12;
-
     private int b = 1 << this.a;
-
     private long c = -1L << this.a;
-
     private int d = 1000;
-
     private byte[] e = null;
-
     private final Map<Long, byte[]> f = new LinkedHashMap<Long, byte[]>(this.d, 0.75f, true) {
-        private static final long serialVersionUID = -6302488539257741101L;
+        private static final long b = -6302488539257741101L;
 
         @Override
         protected boolean removeEldestEntry(Map.Entry<Long, byte[]> entry) {
@@ -33,35 +28,26 @@ public class b implements RandomAccessRead {
             return bl;
         }
     };
-
     private long g = -1L;
-
     private byte[] h = new byte[this.b];
-
     private int i = 0;
-
     private final RandomAccessFile j;
-
     private final long k;
-
     private long l = 0L;
-
     private boolean m;
-
     private final c n;
-
     private static final int o = 1024;
 
-    // public b(File paramFile, a parama) throws IOException {
-    public b(File paramFile) throws IOException {
-        this.j = new RandomAccessFile(paramFile, "r");
+    // public b(File file, a a2) throws IOException {
+    public b(File file) throws IOException {
+        this.j = new RandomAccessFile(file, "r");
         try {
-            this.k = paramFile.length() - 1024L;
-            byte[] arrayOfByte = new byte[1024];
-            this.j.readFully(arrayOfByte);
-            // this.n = new c(parama);
+            this.k = file.length() - 1024L;
+            byte[] byArray = new byte[1024];
+            this.j.readFully(byArray);
+            // this.n = new c(a2);
             this.n = new c();
-            this.n.a(arrayOfByte, 0, arrayOfByte.length);
+            this.n.a(byArray, 0, byArray.length);
         } catch (IOException iOException) {
             this.j.close();
             throw iOException;
@@ -71,109 +57,129 @@ public class b implements RandomAccessRead {
         }
     }
 
+    @Override
     public long getPosition() {
         return this.l;
     }
 
-    public void seek(long paramLong) throws IOException {
-        long l = paramLong & this.c;
-        if (l != this.g) {
-            byte[] arrayOfByte = this.f.get(Long.valueOf(l));
-            if (arrayOfByte == null) {
-                this.j.seek(l + 1024L);
-                arrayOfByte = a();
-                this.f.put(Long.valueOf(l), arrayOfByte);
+    @Override
+    public void seek(long l2) throws IOException {
+        long l3 = l2 & this.c;
+        if (l3 != this.g) {
+            byte[] byArray = this.f.get(l3);
+            if (byArray == null) {
+                this.j.seek(l3 + 1024L);
+                byArray = this.a();
+                this.f.put(l3, byArray);
             }
-            this.g = l;
-            this.h = arrayOfByte;
+            this.g = l3;
+            this.h = byArray;
         }
-        this.i = (int) (paramLong - this.g);
-        this.l = paramLong;
+        this.i = (int) (l2 - this.g);
+        this.l = l2;
     }
 
     private byte[] a() throws IOException {
-        byte[] arrayOfByte;
+        int n2;
+        byte[] byArray;
         if (this.e != null) {
-            arrayOfByte = this.e;
+            byArray = this.e;
             this.e = null;
         } else {
-            arrayOfByte = new byte[this.b];
+            byArray = new byte[this.b];
         }
-        for (int i = 0; i < this.b; i += k) {
-            int j = (int) this.j.getFilePointer() - 1024;
-            int k = this.j.read(arrayOfByte, i, this.b - i);
-            if (k < 0)
+        for (int i2 = 0; i2 < this.b; i2 += n2) {
+            int n3 = (int) this.j.getFilePointer() - 1024;
+            n2 = this.j.read(byArray, i2, this.b - i2);
+            if (n2 < 0)
                 break;
-            this.n.a(arrayOfByte, j, i, k);
+            this.n.a(byArray, n3, i2, n2);
         }
-        return arrayOfByte;
+        return byArray;
     }
 
+    @Override
     public int read() throws IOException {
-        if (this.l >= this.k)
+        if (this.l >= this.k) {
             return -1;
-        if (this.i == this.b)
-            seek(this.l);
-        this.l++;
+        }
+        if (this.i == this.b) {
+            this.seek(this.l);
+        }
+        ++this.l;
         return this.h[this.i++] & 0xFF;
     }
 
-    public int read(byte[] paramArrayOfbyte) throws IOException {
-        return read(paramArrayOfbyte, 0, paramArrayOfbyte.length);
+    @Override
+    public int read(byte[] byArray) throws IOException {
+        return this.read(byArray, 0, byArray.length);
     }
 
-    public int read(byte[] paramArrayOfbyte, int paramInt1, int paramInt2) throws IOException {
-        if (this.l >= this.k)
+    @Override
+    public int read(byte[] byArray, int n2, int n3) throws IOException {
+        if (this.l >= this.k) {
             return -1;
-        if (this.i == this.b)
-            seek(this.l);
-        int i = Math.min(this.b - this.i, paramInt2);
-        if (this.k - this.l < this.b)
-            i = Math.min(i, (int) (this.k - this.l));
-        System.arraycopy(this.h, this.i, paramArrayOfbyte, paramInt1, i);
-        this.i += i;
-        this.l += i;
-        return i;
+        }
+        if (this.i == this.b) {
+            this.seek(this.l);
+        }
+        int n4 = Math.min(this.b - this.i, n3);
+        if (this.k - this.l < (long) this.b) {
+            n4 = Math.min(n4, (int) (this.k - this.l));
+        }
+        System.arraycopy(this.h, this.i, byArray, n2, n4);
+        this.i += n4;
+        this.l += (long) n4;
+        return n4;
     }
 
+    @Override
     public int available() throws IOException {
-        return (int) Math.min(this.k - this.l, 2147483647L);
+        return (int) Math.min(this.k - this.l, Integer.MAX_VALUE);
     }
 
+    @Override
     public long length() throws IOException {
         return this.k;
     }
 
+    @Override
     public void close() throws IOException {
         this.j.close();
         this.f.clear();
         this.m = true;
     }
 
+    @Override
     public boolean isClosed() {
         return this.m;
     }
 
+    @Override
     public int peek() throws IOException {
-        int i = read();
-        if (i != -1)
-            rewind(1);
-        return i;
+        int n2 = this.read();
+        if (n2 != -1) {
+            this.rewind(1);
+        }
+        return n2;
     }
 
-    public void rewind(int paramInt) throws IOException {
-        seek(getPosition() - paramInt);
+    @Override
+    public void rewind(int n2) throws IOException {
+        this.seek(this.getPosition() - (long) n2);
     }
 
-    public byte[] readFully(int paramInt) throws IOException {
-        byte[] arrayOfByte = new byte[paramInt];
-        for (int i = read(arrayOfByte); i < paramInt; i += read(arrayOfByte, i, paramInt - i))
-            ;
-        return arrayOfByte;
+    @Override
+    public byte[] readFully(int n2) throws IOException {
+        byte[] byArray = new byte[n2];
+        for (int i2 = this.read(byArray); i2 < n2; i2 += this.read(byArray, i2, n2 - i2)) {
+        }
+        return byArray;
     }
 
+    @Override
     public boolean isEOF() throws IOException {
-        int i = peek();
-        return (i == -1);
+        int n2 = this.peek();
+        return n2 == -1;
     }
 }
