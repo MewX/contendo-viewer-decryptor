@@ -32,7 +32,7 @@ class Main {
     public static void main(String[] args) {
         new Main().runAES("/mnt/r/info");
         // new Main().runDecrypt("/mnt/r/J0010495BK0099750001.S/OPS/xhtml/1.xhtml");
-        new Main().runDecrypt("/mnt/r/comic.S/item/xhtml/p-001.xhtml");
+        new Main().runDecrypt("/mnt/r/J0010336BK0076772001.S/item/xhtml/p-001.xhtml");
     }
 
     /**
@@ -48,8 +48,7 @@ class Main {
             // long l = Long.parseLong(stringBuffer.toString());
 
             // This is the Long object in the `info` file.
-            // byte[] builtSecretKey = buildSecretKey(-345585222195293739L);
-            byte[] builtSecretKey = buildSecretKey(6874628185188049249L);
+            byte[] builtSecretKey = buildSecretKey(-7130226094961089442L);
 
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             SecretKeySpec secretKeySpec = new SecretKeySpec(messageDigest.digest(builtSecretKey), "AES");

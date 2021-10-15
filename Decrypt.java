@@ -5,9 +5,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class Decrypt {
-    // public static String DECRYPTION_KEY =
-    // "b376645a87fa6ba2ae3eb5111eacc3bcaf2ea83b11acf34be7fd676f7546739b1554ccd0c0faa7c87580bfbd2a3cb63be97761cb0ef2d36c9efb2aea41cdae8f";
-    public static String DECRYPTION_KEY = "67fb93e12304f0fcb04587f104161dfaae56363b8a10088b39b988480cc5082f4c6b899a27adf86511e64a06254eb2a5bd45b1588a4c1e283a64d94b380a0ec0";
+    public static String DECRYPTION_KEY = "5309124f237c691c7123affeffe94bca1e3d4028f044677bda9fc13688a0f529b49fbb815944d2c08b0a822081720cddeb0ec746c9fececaf8c8138998cb9a10";
 
     public String getOutputFullPath(String src, String dest, String fullSrcPath) {
         return dest + fullSrcPath.substring(src.length());
